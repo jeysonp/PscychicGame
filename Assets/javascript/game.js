@@ -1,7 +1,7 @@
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var userGuess = [];
+var userGuesses = [];
 var computerChoices = ["a", "b", "c","d", "e", "f","g", "h", "i","j", "k", "l","m", "n", "o","p", "q", "r","s", "t", "u","v", "w", "x","y", "z"];
 var letterToGuess = null; 
 
@@ -14,21 +14,34 @@ console.log(letterToGuess)
 document.onkeyup = function(event) {
   var userGuess = event.key.toLowerCase(); 
 
-console.log(userGuess);
-
   if (userGuess === letterToGuess) {
     wins++;
+    
     guessesLeft = 9;
-    userGuess = [];
-  }
-
-  else if (userGuess != letterToGuess) {
+    userGuesses = [];
+    letterToGuess = letterChosen(); 
+  } else  {
     guessesLeft --;
+    userGuesses.push(userGuess)
   }
 
-  else if (guessesLeft === 0) {
-    guessesLefts = 9;
+  if (guessesLeft === 0) {
+    guessesLeft = 9;
     losses ++;
-    userGuess = [];
+    userGuesses = [];
   }
+
+var html = "<p>Can you guess the letter I am thinking of?</p>" +
+"<p>Wins: " + wins + "</p>" +
+"<p>Losses: " + losses + "</p>" +
+"<p>Guesses Left: " + guessesLeft + "</p>" +
+"<p>Your Guesses so far: " + userGuesses.join() + "</p>";
+
+  document.getElementById('game').innerHTML = html;
 }
+
+
+  
+
+
+  

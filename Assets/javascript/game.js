@@ -7,9 +7,8 @@ var letterToGuess = null;
 
   var letterChosen = function() {
     return computerChoices[Math.floor(Math.random() * computerChoices.length)];
-};
-letterToGuess = letterChosen()
-console.log(letterToGuess)
+  };
+  letterToGuess = letterChosen()
 
 document.onkeyup = function(event) {
   var userGuess = event.key.toLowerCase(); 

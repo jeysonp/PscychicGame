@@ -15,7 +15,6 @@ document.onkeyup = function(event) {
 
   if (userGuess === letterToGuess) {
     wins++;
-    
     guessesLeft = 9;
     userGuesses = [];
     letterToGuess = letterChosen(); 
